@@ -1,0 +1,137 @@
+
+# See the dedicated "version" documentation section.
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  disable:
+    - depguard
+    - musttag
+    - funlen
+    - forbidigo
+    - godox
+    - tagalign
+    - ireturn
+    - nlreturn
+    - wsl
+    # the following linters should be enabled once packages have been refactored
+    - exhaustruct
+    - gochecknoglobals
+    - err113
+    - lll
+  enable:
+    - asasalint
+    - bidichk
+    - bodyclose
+    - containedctx
+    - contextcheck
+    - copyloopvar
+    - cyclop
+    - decorder
+    - dogsled
+    - dupl
+    - dupword
+    - durationcheck
+    - errcheck
+    - errchkjson
+    - errname
+    - errorlint
+    - exhaustive
+    - forcetypeassert
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - mnd
+    - gomoddirectives
+    - gomodguard
+    - goprintffuncname
+    - gosec
+    - gosmopolitan
+    - govet
+    - grouper
+    - importas
+    - ineffassign
+    - interfacebloat
+    - loggercheck
+    - maintidx
+    - makezero
+    - misspell
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - noctx
+    - nolintlint
+    - nonamedreturns
+    - nosprintfhostport
+    #- paralleltest
+    - prealloc
+    - predeclared
+    - reassign
+    - revive
+    - rowserrcheck
+    - sqlclosecheck
+    - staticcheck
+    - tagliatelle
+    - testableexamples
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - unused
+    - usestdlibvars
+    - usetesting
+    - varnamelen
+    - wastedassign
+    - whitespace
+    #- wrapcheck # 2024-11-20: temporarily disabled to focus on more urgent warnings
+    - zerologlint
+  settings:
+    varnamelen:
+      min-name-length: 2
+      ignore-names:
+        - i
+        - j
+        - k
+        - v
+    tagliatelle:
+      case:
+        use-field-name: true
+        rules:
+          json: snake
+          env: upperSnake
+    godot:
+      period: false
+    wrapcheck:
+      ignore-sigs:
+        - json.Marshal(
+        - .Errorf(
+        - errors.New(
+        - errors.Unwrap(
+        - errors.Join(
+        - .Wrap(
+        - .Wrapf(
+        - .WithMessage(
+        - .WithMessagef(
+        - .WithStack(
+    cyclop:
+      max-complexity: 12
+    govet:
+      enable-all: true
+      disable:
+        - fieldalignment
+  exclusions:
+    rules:
+      - path: "infra/"
+        linters:
+          - gosec
+      - path: "sample_files/"
+        linters:
+          - gosec
+
