@@ -4,7 +4,7 @@ demo: run
 
 tidy:
 	go mod tidy
-  # go mod vendor
+# go mod vendor
 
 generate:
 	go generate ./...
