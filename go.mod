@@ -29,15 +29,15 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.34.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.38.1 // indirect
 	github.com/aws/smithy-go v1.23.0 // indirect
-	github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203 // indirect
-	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/rs/zerolog v1.33.0 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
-	github.com/stretchr/testify v1.11.1 // indirect
-	github.com/twinj/uuid v0.0.0-00010101000000-000000000000 // indirect
+	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/xtaci/smux v1.5.35 // indirect
 	golang.org/x/crypto v0.41.0 // indirect
 	golang.org/x/sync v0.16.0 // indirect
@@ -47,4 +47,6 @@ require (
 
 replace github.com/mmmorris1975/ssm-session-client => ./
 
-replace github.com/twinj/uuid => github.com/gofrs/uuid/v5 v5.3.2
+// Get most recent version by:
+// go list -m github.com/formalco/session-manager-plugin@mainline
+replace github.com/aws/session-manager-plugin => github.com/formalco/session-manager-plugin v0.0.0-20250219013505-109cabb6df48
