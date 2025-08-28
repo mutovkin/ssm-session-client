@@ -1,0 +1,95 @@
+// cSpell Settings
+// For additional information and more options see:
+// https://cspell.org/configuration/
+{
+  // Version of the setting file.  Always 0.2
+  "version": "0.2",
+  // language - current active spelling language
+  "language": "en,en-CA,en-GB,en-US",
+  // The minimum length of a word before checking it against a dictionary.
+  "minWordLength": 4,
+  // Enable / Disable compound words like 'errormessage'
+  "allowCompoundWords": false,
+
+  // Dictionary definitions
+  "dictionaryDefinitions": [
+    {
+      "name": "pkg-terms",
+      "path": "./.cspell/pkg-dictionary.txt",
+      "description": "Package specific terms"
+    },
+    {
+      "name": "go-terms",
+      "path": "./.cspell/go-dictionary.txt",
+      "description": "Custom Go project dictionary"
+    },
+    {
+      "name": "aws-terms",
+      "path": "./.cspell/aws-dictionary.txt",
+      "description": "Custom AWS project dictionary"
+    }
+  ],
+
+  // Enable custom dictionaries
+  "dictionaries": ["aws-terms", "go-terms", "pkg-terms"],
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"
+  "flagWords": ["hte"],
+
+  //ignoreWords - a list of words to be ignored (even if they are in the flagWords).
+  "ignoreWords": [],
+
+  //ignorePaths - a list of globs to specify which files are to be ignored.
+  "ignorePaths": [
+    ".git", // Ignore the .git directory
+    "*.dll", // Ignore all .dll files.
+    "**/*.dll", // Ignore all .dll files
+    "**/node_modules", // the same for this one
+    "**/node_modules/**", // the same for this one
+    "3rd_party", // Ignore the 3rd_party directory
+    "bin", // Compiled binary files
+    "node_modules", // this will ignore anything the node_modules directory
+    "node_modules/**", // Doesn't currently work due to how the current working directory is determined.
+    "third_party", // Ignore the third_party directory
+    "vendor", // Ignore the vendor directory
+    "vscode-extension", //
+    "*.csv",
+    "*.json",
+    "*.log",
+    "**/testdata/**",
+    "**/test/**",
+    "go.*",
+    "loyaltyName.go",
+    "*.text",
+    "*_test.go",
+    "pkg/validation/*"
+  ],
+  "languageSettings": [
+    {
+      // VSCode languageId. i.e. typescript, java, go, cpp, javascript, markdown, latex
+      // * will match against any file type.
+      "languageId": "go",
+      // To exclude patterns, add them to "ignoreRegExpList"
+      // Exclude imports, because they are also strings.
+      "ignoreRegExpList": [
+        // ignore multiline imports
+        "import\\s*\\((.|[\r\n])*?\\)",
+        // ignore single line imports
+        "import\\s*.*\".*?\"",
+        // ignore go generate directive
+        "//\\s*go:generate.*",
+        // ignore nolint directive
+        "//\\s*nolint:.*"
+      ],
+      // List of dictionaries to enable by name in `dictionaryDefinitions`
+      "dictionaries": ["aws-terms", "go-terms", "pkg-terms"],
+      // Dictionary definitions can also be supplied here. They are only used if "languageId" and "locale" match.
+      "dictionaryDefinitions": [],
+      // Turn off compound words, because it is only checking strings.
+      "allowCompoundWords": true,
+      // Only check comments and strings
+      "includeRegExpList": ["CStyleComment", "string"]
+    }
+  ]
+}
